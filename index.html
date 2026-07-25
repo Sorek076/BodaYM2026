@@ -1158,79 +1158,89 @@
         }
 
         // --- Enviar formulario RSVP a Google Sheets ---
-        function enviarRSVP(event) {
-            event.preventDefault();
-            
-            const form = document.getElementById('formRSVP');
-            const formData = new FormData(form);
-            
-            const asistencia = formData.get('asistencia');
-            const nombre = formData.get('nombre');
-            const apellidos = formData.get('apellidos');
-            const telefono = formData.get('telefono');
-            
-            if (!asistencia) {
-                alert('Por favor selecciona si asistirás o no.');
-                return;
-            }
-            
-            // Construir objeto con los datos
-            const datos = {
-                asistencia: asistencia,
-                nombre: nombre,
-                apellidos: apellidos,
-                telefono: telefono || ''
-            };
-            
-            // URL de tu Google Apps Script
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwGf7D8EqbR5fpmyw4zf-fwpB7kjyr9btjfKko1uK7jteqB6csRshBhG7SFP6hqbbqR/exec';
-            
-            // Mostrar mensaje de carga
-            const botonEnviar = document.querySelector('.btn-enviar');
-            const textoOriginal = botonEnviar.textContent;
-            botonEnviar.textContent = 'Enviando...';
-            botonEnviar.disabled = true;
-            
-            console.log('📤 Enviando datos a Google Sheets:', datos);
-            
-            // Enviar datos a Google Sheets con mode: 'no-cors'
-            fetch(scriptURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(datos)
-            })
-            .then(() => {
-                // Con no-cors no podemos leer la respuesta, pero la solicitud se envió
-                console.log('✅ Datos enviados correctamente');
-                
-                // Mostrar mensaje de éxito
-                document.getElementById('mensajeExito').classList.add('active');
-                form.reset();
-                document.querySelector('input[name="asistencia"][value="asistire"]').checked = true;
-                
-                // Restaurar botón
-                botonEnviar.textContent = textoOriginal;
-                botonEnviar.disabled = false;
-                
-                // Ocultar formulario después de 3 segundos
-                setTimeout(() => {
-                    document.querySelector('.rsvp-form').classList.remove('active');
-                }, 3000);
-                
-                // Ocultar mensaje de éxito después de 4 segundos
-                setTimeout(() => {
-                    document.getElementById('mensajeExito').classList.remove('active');
-                }, 4000);
-            })
-            .catch(error => {
-                console.error('❌ Error al enviar:', error);
-                alert('Hubo un error al enviar la confirmación. Por favor, intenta de nuevo.');
-                botonEnviar.textContent = textoOriginal;
-                botonEnviar.disabled = false;
-            });
+        // --- Enviar formulario RSVP a Google Sheets ---
+function enviarRSVP(event) {
+    event.preventDefault();
+    
+    const form = document.getElementById('formRSVP');
+    const formData = new FormData(form);
+    
+    const asistencia = formData.get('asistencia');
+    const nombre = formData.get('nombre');
+    const apellidos = formData.get('apellidos');
+    const telefono = formData.get('telefono');
+    
+    if (!asistencia) {
+        alert('Por favor selecciona si asistirás o no.');
+        return;
+    }
+    
+    // Construir objeto con los datos
+    const datos = {
+        asistencia: asistencia,
+        nombre: nombre,
+        apellidos: apellidos,
+        telefono: telefono || ''
+    };
+    
+    // URL de tu Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwGf7D8EqbR5fpmyw4zf-fwpB7kjyr9btjfKko1uK7jteqB6csRshBhG7SFP6hqbbqR/exec';
+    
+    // Mostrar mensaje de carga
+    const botonEnviar = document.querySelector('.btn-enviar');
+    const textoOriginal = botonEnviar.textContent;
+    botonEnviar.textContent = 'Enviando...';
+    botonEnviar.disabled = true;
+    
+    console.log('📤 Enviando datos a Google Sheets:', datos);
+    
+    // Enviar datos a Google Sheets
+    fetch(scriptURL, {
+        method: 'POST',
+        mode: 'cors', // Cambiar de 'no-cors' a 'cors'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datos)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
         }
+        return response.json();
+    })
+    .then(data => {
+        console.log('✅ Respuesta del servidor:', data);
+        
+        if (data.success) {
+            // Mostrar mensaje de éxito
+            document.getElementById('mensajeExito').classList.add('active');
+            form.reset();
+            document.querySelector('input[name="asistencia"][value="asistire"]').checked = true;
+            
+            // Ocultar formulario después de 3 segundos
+            setTimeout(() => {
+                document.querySelector('.rsvp-form').classList.remove('active');
+            }, 3000);
+            
+            // Ocultar mensaje de éxito después de 4 segundos
+            setTimeout(() => {
+                document.getElementById('mensajeExito').classList.remove('active');
+            }, 4000);
+        } else {
+            alert('Error: ' + (data.message || 'No se pudo guardar la confirmación'));
+        }
+    })
+    .catch(error => {
+        console.error('❌ Error al enviar:', error);
+        alert('Hubo un error al enviar la confirmación. Por favor, intenta de nuevo.');
+    })
+    .finally(() => {
+        // Restaurar botón
+        botonEnviar.textContent = textoOriginal;
+        botonEnviar.disabled = false;
+    });
+}
 
         console.log('🎉 Boda de Yaneth & Miguel');
         console.log('📅 14 de noviembre de 2026');
