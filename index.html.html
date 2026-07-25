@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Boda · Yaneth & Miguel</title>
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&display=swap" rel="stylesheet" />
+    <style>
+        /* --- Reset y base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f5fc;
+            color: #3e3a39;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Tipografía --- */
+        .script {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+        }
+
+        /* --- Secciones con parallax --- */
+        .parallax-section {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 80px 0;
+        }
+
+        .parallax-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(130, 100, 160, 0.6);
+            z-index: 1;
+        }
+
+        .parallax-section .contenido {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .parallax-section .script {
+            font-size: 3.5rem;
+            color: #ffffff;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            margin-bottom: 12px;
+        }
+
+        .parallax-section h2 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            margin-bottom: 16px;
+        }
+
+        .parallax-section p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.95);
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.15);
+            padding: 0 10px;
+        }
+
+        /* Hero específico */
+        .hero {
+            min-height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(130, 100, 160, 0.5);
+            z-index: 1;
+        }
+
+        .hero .contenido {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+            padding: 0 16px;
+        }
+
+        .hero .script {
+            font-size: 4.5rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.2);
+        }
+
+        .hero .fecha {
+            font-size: 1.4rem;
+            color: #ffffff;
+            letter-spacing: 6px;
+            background: rgba(180, 150, 200, 0.3);
+            display: inline-block;
+            padding: 8px 40px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+
+        /* --- Contador --- */
+        .contador-wrapper {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 20px 28px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+            width: auto;
+            min-width: 420px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contador {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: nowrap;
+            min-width: 360px;
+        }
+
+        .contador-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            padding: 12px 20px;
+            border-radius: 14px;
+            min-width: 78px;
+            border: 1px solid rgba(255,255,255,0.12);
+            flex-shrink: 0;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .contador-item .numero {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: white;
+            display: block;
+            line-height: 1.2;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            letter-spacing: 2px;
+            min-width: 50px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .contador-item .etiqueta {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.85);
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* --- Secciones normales --- */
+        .section {
+            padding: 70px 0;
+            border-bottom: 1px solid #ede5f5;
+            background: #f8f5fc;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-align: center;
+            color: #4d3e5a;
+            margin-bottom: 12px;
+        }
+
+        .section-title .script {
+            color: #b894d4;
+            font-size: 2.8rem;
+            display: block;
+        }
+
+        .section-sub {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #7a6a85;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        /* --- Información simplificada --- */
+        .info-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            max-width: 600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .info-card {
+            background: white;
+            padding: 28px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(120, 80, 150, 0.08);
+            text-align: center;
+            border: 1px solid #ede5f5;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
+            min-width: 140px;
+            max-width: 200px;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(120, 80, 150, 0.15);
+        }
+
+        .info-card .icono {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 4px;
+            color: #b894d4;
+        }
+
+        .info-card .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b894d4;
+            font-weight: 600;
+        }
+
+        .info-card .valor {
+            font-size: 1.2rem;
+            color: #4d3e5a;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* --- Sección de Regalos --- */
+        .regalos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .regalo-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(120, 80, 150, 0.08);
+            text-align: center;
+            border: 1px solid #ede5f5;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .regalo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(120, 80, 150, 0.15);
+        }
+
+        .regalo-card .icono {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .regalo-card h3 {
+            font-size: 1.3rem;
+            color: #4d3e5a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .regalo-card p {
+            color: #7a6a85;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .regalo-card .btn-regalo {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #b894d4, #a67ec4);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .regalo-card .btn-regalo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(184, 148, 212, 0.4);
+        }
+
+        .regalo-card .btn-regalo.efectivo {
+            background: linear-gradient(135deg, #d4b8e8, #c4a0d8);
+            cursor: default;
+        }
+
+        .regalo-card .btn-regalo.efectivo:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* --- Confirmar Asistencia - RSVP --- */
+        .rsvp-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .btn-rsvp {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 20px;
+            padding: 18px 48px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(135deg, #b894d4, #a67ec4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+
+        .btn-rsvp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(184, 148, 212, 0.4);
+        }
+
+        /* Formulario RSVP */
+        .rsvp-form {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(120, 80, 150, 0.08);
+            border: 1px solid #ede5f5;
+            display: none;
+            animation: fadeIn 0.5s ease;
+            margin-top: 10px;
+        }
+
+        .rsvp-form.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .rsvp-form .form-group {
+            margin-bottom: 18px;
+        }
+
+        .rsvp-form label {
+            display: block;
+            font-weight: 600;
+            color: #4d3e5a;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .rsvp-form label .opcional {
+            font-weight: 400;
+            color: #8a7a95;
+            font-size: 0.85rem;
+        }
+
+        .rsvp-form input[type="text"],
+        .rsvp-form input[type="tel"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #ede5f5;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            background: #faf8fc;
+        }
+
+        .rsvp-form input:focus {
+            outline: none;
+            border-color: #b894d4;
+        }
+
+        /* Opciones de asistencia (radio buttons sin iconos) */
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 400;
+            color: #4d3e5a;
+            cursor: pointer;
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        .radio-group input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #b894d4;
+            cursor: pointer;
+        }
+
+        .btn-enviar {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(135deg, #b894d4, #a67ec4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn-enviar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(184, 148, 212, 0.4);
+        }
+
+        .btn-enviar:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .mensaje-exito {
+            text-align: center;
+            padding: 15px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 12px;
+            display: none;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .mensaje-exito.active {
+            display: block;
+        }
+
+        .texto-ayuda {
+            text-align: center;
+            margin-top: 16px;
+            color: #8a7a95;
+            font-size: 0.9rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #ede5f5;
+            text-align: center;
+            padding: 32px 0;
+            color: #6b5d76;
+            font-size: 0.95rem;
+            border-top: 3px solid #d4c0e8;
+        }
+
+        footer .script {
+            font-size: 1.8rem;
+            color: #b894d4;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* --- Galería - Hover sencillo --- */
+        .galeria-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .galeria-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(120, 80, 150, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(120, 80, 150, 0.2);
+            z-index: 5;
+        }
+
+        .galeria-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .galeria-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .galeria-item:nth-child(5) {
+            grid-row: span 2;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .galeria-container {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 180px;
+            }
+            .galeria-item:first-child {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+            .galeria-item:nth-child(4) {
+                grid-column: span 2;
+            }
+            .galeria-item:nth-child(5) {
+                grid-row: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero .script {
+                font-size: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                letter-spacing: 6px;
+            }
+
+            .hero .fecha {
+                font-size: 1.1rem;
+                padding: 6px 24px;
+                letter-spacing: 4px;
+                margin-bottom: 16px;
+            }
+
+            .parallax-section .script {
+                font-size: 2.5rem;
+            }
+
+            .parallax-section h2 {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+
+            .parallax-section .contenido {
+                padding: 0 30px;
+            }
+
+            .parallax-section p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+
+            .info-grid {
+                gap: 20px;
+            }
+
+            .info-card {
+                padding: 18px 20px;
+                min-width: 110px;
+                max-width: 160px;
+            }
+
+            .info-card .valor {
+                font-size: 1.1rem;
+            }
+
+            .info-card .icono {
+                font-size: 1.6rem;
+            }
+
+            .contador-wrapper {
+                padding: 16px 20px;
+                border-radius: 16px;
+                min-width: 340px;
+            }
+
+            .contador {
+                gap: 10px;
+                min-width: 300px;
+            }
+
+            .contador-item {
+                padding: 10px 14px;
+                min-width: 62px;
+                border-radius: 12px;
+            }
+
+            .contador-item .numero {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+                min-width: 38px;
+            }
+
+            .contador-item .etiqueta {
+                font-size: 0.65rem;
+                letter-spacing: 1px;
+            }
+
+            .regalos-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .galeria-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 160px;
+                gap: 12px;
+            }
+
+            .galeria-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .galeria-item:nth-child(4) {
+                grid-column: span 1;
+            }
+
+            .galeria-item:nth-child(5) {
+                grid-row: span 1;
+            }
+
+            .parallax-section {
+                min-height: 350px;
+                padding: 50px 0;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding: 20px 0;
+            }
+
+            .hero .contenido {
+                padding: 0 8px;
+            }
+
+            .rsvp-form {
+                padding: 25px 20px;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-rsvp {
+                font-size: 1.1rem;
+                padding: 16px 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero .script {
+                font-size: 2.4rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+                letter-spacing: 4px;
+            }
+            .hero .fecha {
+                font-size: 0.9rem;
+                padding: 4px 16px;
+                letter-spacing: 3px;
+                margin-bottom: 12px;
+            }
+            .section {
+                padding: 40px 0;
+            }
+
+            .parallax-section .contenido {
+                padding: 0 24px;
+            }
+
+            .parallax-section p {
+                font-size: 1rem;
+                padding: 0 8px;
+            }
+
+            .parallax-section h2 {
+                font-size: 1.6rem;
+                letter-spacing: 3px;
+            }
+
+            .parallax-section .script {
+                font-size: 2.2rem;
+            }
+
+            .contador-wrapper {
+                padding: 12px 14px;
+                border-radius: 14px;
+                min-width: 290px;
+            }
+
+            .contador {
+                gap: 6px;
+                min-width: 260px;
+            }
+
+            .contador-item {
+                padding: 8px 10px;
+                min-width: 50px;
+                border-radius: 10px;
+            }
+
+            .contador-item .numero {
+                font-size: 1.6rem;
+                letter-spacing: 0px;
+                min-width: 30px;
+            }
+
+            .contador-item .etiqueta {
+                font-size: 0.5rem;
+                letter-spacing: 0.5px;
+            }
+
+            .galeria-container {
+                grid-auto-rows: 100px;
+                gap: 6px;
+            }
+
+            .info-card {
+                padding: 14px 14px;
+                min-width: 90px;
+                max-width: 130px;
+            }
+            .info-card .valor {
+                font-size: 0.95rem;
+            }
+            .info-card .icono {
+                font-size: 1.3rem;
+            }
+            .info-card .label {
+                font-size: 0.65rem;
+                letter-spacing: 1px;
+            }
+
+            .info-grid {
+                gap: 12px;
+            }
+
+            .regalo-card {
+                padding: 20px 16px;
+            }
+            .regalo-card .icono {
+                font-size: 2.2rem;
+            }
+            .regalo-card h3 {
+                font-size: 1.1rem;
+            }
+            .regalo-card p {
+                font-size: 0.85rem;
+            }
+            .regalo-card .btn-regalo {
+                padding: 10px 24px;
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .section-title .script {
+                font-size: 2.2rem;
+            }
+            .section-sub {
+                font-size: 0.95rem;
+                margin-bottom: 30px;
+            }
+
+            .btn-rsvp {
+                font-size: 1rem;
+                padding: 14px 24px;
+                max-width: 100%;
+            }
+
+            .rsvp-form {
+                padding: 20px 16px;
+            }
+            .rsvp-form label {
+                font-size: 0.9rem;
+            }
+            .rsvp-form input {
+                font-size: 0.9rem;
+                padding: 10px 14px;
+            }
+            .btn-enviar {
+                font-size: 1rem;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .contador-wrapper {
+                padding: 10px 10px;
+                min-width: 240px;
+                border-radius: 12px;
+            }
+            .contador {
+                gap: 4px;
+                min-width: 220px;
+            }
+            .contador-item {
+                padding: 6px 6px;
+                min-width: 40px;
+                border-radius: 8px;
+            }
+            .contador-item .numero {
+                font-size: 1.3rem;
+                min-width: 24px;
+            }
+            .contador-item .etiqueta {
+                font-size: 0.4rem;
+                letter-spacing: 0px;
+            }
+
+            .parallax-section .contenido {
+                padding: 0 16px;
+            }
+            .parallax-section p {
+                font-size: 0.9rem;
+                padding: 0 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO con parallax -->
+    <header class="hero" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1600&h=900&fit=crop');">
+        <div class="contenido">
+            <span class="script">Nos casamos</span>
+            <h1>Yaneth &amp; Miguel</h1>
+            <div class="fecha">14 · Noviembre · 2026</div>
+            
+            <div class="contador-wrapper">
+                <div class="contador" id="contador">
+                    <div class="contador-item">
+                        <span class="numero" id="dias">00</span>
+                        <span class="etiqueta">Días</span>
+                    </div>
+                    <div class="contador-item">
+                        <span class="numero" id="horas">00</span>
+                        <span class="etiqueta">Horas</span>
+                    </div>
+                    <div class="contador-item">
+                        <span class="numero" id="minutos">00</span>
+                        <span class="etiqueta">Min</span>
+                    </div>
+                    <div class="contador-item">
+                        <span class="numero" id="segundos">00</span>
+                        <span class="etiqueta">Seg</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN: HORA Y DIRECCIÓN -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="script">Información</span> del evento</h2>
+            <p class="section-sub">Te esperamos para celebrar este día tan especial.</p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="icono">◈</span>
+                    <div class="label">Hora</div>
+                    <div class="valor">17:00 hrs</div>
+                </div>
+                <div class="info-card">
+                    <span class="icono">◈</span>
+                    <div class="label">Dirección</div>
+                    <div class="valor">Calle Primavera 123</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PARALLAX: MENSAJE BONITO -->
+    <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&h=900&fit=crop');">
+        <div class="contenido">
+            <span class="script">Con amor</span>
+            <h2>Gracias por acompañarnos</h2>
+            <p>
+                Su presencia en este día tan especial es el mejor regalo. 
+                Nos llena de alegría compartir este momento con quienes más queremos.
+            </p>
+            <br />
+            <p style="font-size: 1.4rem; font-family: 'Great Vibes', cursive;">
+                — Yaneth & Miguel
+            </p>
+        </div>
+    </section>
+
+    <!-- GALERÍA - Hover sencillo -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="script">Nuestra</span> Galería</h2>
+            <p class="section-sub">Algunos momentos que atesoramos.</p>
+            
+            <div class="galeria-container">
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop" alt="Anillos de boda" />
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=400&fit=crop" alt="Pareja en la naturaleza" />
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&h=400&fit=crop" alt="Ramo de flores" />
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=300&fit=crop" alt="Mesa de boda" />
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=400&fit=crop" alt="Pastel de boda" />
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=400&fit=crop" alt="Pareja feliz" />
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=400&fit=crop" alt="Decoración floral" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: REGALOS -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="script">Mesa de</span> Regalos</h2>
+            <p class="section-sub">Tu presencia es el mejor regalo, pero si deseas obsequiarnos algo, aquí tienes nuestras opciones.</p>
+            
+            <div class="regalos-grid">
+                <div class="regalo-card">
+                    <span class="icono">🎁</span>
+                    <h3>Lista de Liverpool</h3>
+                    <p>Puedes elegir un regalo de nuestra lista en Liverpool.</p>
+                    <a href="https://www.liverpool.com.mx/tienda/home" target="_blank" class="btn-regalo">
+                        Ver lista
+                    </a>
+                </div>
+                <div class="regalo-card">
+                    <span class="icono">💌</span>
+                    <h3>Regalo en efectivo</h3>
+                    <p>Si prefieres, puedes hacer un regalo en efectivo el día de la boda.</p>
+                    <span class="btn-regalo efectivo">
+                        En sobre
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONFIRMAR ASISTENCIA - RSVP -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="script">Confirma tu</span> Asistencia</h2>
+            <p class="section-sub">Por favor confirma tu presencia en nuestra boda.</p>
+            
+            <div class="rsvp-container">
+                <button class="btn-rsvp" onclick="toggleFormulario()">RSVP</button>
+                
+                <div class="rsvp-form" id="rsvpForm">
+                    <form id="formRSVP" onsubmit="enviarRSVP(event)">
+                        <div class="form-group">
+                            <label>¿Asistirás a la boda?</label>
+                            <div class="radio-group">
+                                <label>
+                                    <input type="radio" name="asistencia" value="asistire" checked required />
+                                    Sí, asistiré
+                                </label>
+                                <label>
+                                    <input type="radio" name="asistencia" value="noasistire" required />
+                                    No asistiré
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre(s)</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej: María José" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" id="apellidos" name="apellidos" placeholder="Ej: Pérez García" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono <span class="opcional">(Opcional)</span></label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 55 1234 5678" />
+                        </div>
+
+                        <button type="submit" class="btn-enviar">Enviar confirmación</button>
+                    </form>
+                    
+                    <div class="mensaje-exito" id="mensajeExito">
+                        ✅ ¡Gracias! Tu confirmación ha sido enviada.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <span class="script">Yaneth &amp; Miguel</span>
+            <p style="letter-spacing: 1px;">14 · Noviembre · 2026</p>
+            <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.7;">
+                Hecho con ❤️ para nuestra boda
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- CONTADOR REGRESIVO ---
+        function actualizarContador() {
+            const fechaBoda = new Date('November 14, 2026 17:00:00').getTime();
+            const ahora = new Date().getTime();
+            const distancia = fechaBoda - ahora;
+
+            if (distancia < 0) {
+                document.getElementById('contador').innerHTML = '<div style="color:white;font-size:1.5rem;">¡Ya es nuestro gran día! 🎉</div>';
+                return;
+            }
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById('dias').textContent = String(dias).padStart(2, '0');
+            document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+            document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+            document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+        }
+
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+
+        // --- RSVP: Mostrar/Ocultar formulario ---
+        function toggleFormulario() {
+            const form = document.getElementById('rsvpForm');
+            form.classList.toggle('active');
+            
+            document.getElementById('mensajeExito').classList.remove('active');
+            
+            if (form.classList.contains('active')) {
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // --- Enviar formulario RSVP a Google Sheets ---
+        function enviarRSVP(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('formRSVP');
+            const formData = new FormData(form);
+            
+            const asistencia = formData.get('asistencia');
+            const nombre = formData.get('nombre');
+            const apellidos = formData.get('apellidos');
+            const telefono = formData.get('telefono');
+            
+            if (!asistencia) {
+                alert('Por favor selecciona si asistirás o no.');
+                return;
+            }
+            
+            // Construir objeto con los datos
+            const datos = {
+                asistencia: asistencia,
+                nombre: nombre,
+                apellidos: apellidos,
+                telefono: telefono || ''
+            };
+            
+            // URL de tu Google Apps Script
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxyg4Yx1w4Jo25_abPVZhWvpAD5iyQ6ZHOp3s4UG6yMiVKD_F4eBMg9F4FGk31_fNG5yA/exec';
+            
+            // Mostrar mensaje de carga
+            const botonEnviar = document.querySelector('.btn-enviar');
+            const textoOriginal = botonEnviar.textContent;
+            botonEnviar.textContent = 'Enviando...';
+            botonEnviar.disabled = true;
+            
+            console.log('📤 Enviando datos a Google Sheets:', datos);
+            
+            // Enviar datos a Google Sheets con mode: 'no-cors'
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',  // ← CRUCIAL para GitHub Pages
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(datos)
+            })
+            .then(() => {
+                // Con no-cors no podemos leer la respuesta, pero la solicitud se envió
+                console.log('✅ Datos enviados correctamente');
+                
+                // Mostrar mensaje de éxito
+                document.getElementById('mensajeExito').classList.add('active');
+                form.reset();
+                document.querySelector('input[name="asistencia"][value="asistire"]').checked = true;
+                
+                // Restaurar botón
+                botonEnviar.textContent = textoOriginal;
+                botonEnviar.disabled = false;
+                
+                // Ocultar formulario después de 3 segundos
+                setTimeout(() => {
+                    document.querySelector('.rsvp-form').classList.remove('active');
+                }, 3000);
+                
+                // Ocultar mensaje de éxito después de 4 segundos
+                setTimeout(() => {
+                    document.getElementById('mensajeExito').classList.remove('active');
+                }, 4000);
+            })
+            .catch(error => {
+                console.error('❌ Error al enviar:', error);
+                alert('Hubo un error al enviar la confirmación. Por favor, intenta de nuevo.');
+                botonEnviar.textContent = textoOriginal;
+                botonEnviar.disabled = false;
+            });
+        }
+
+        console.log('🎉 Boda de Yaneth & Miguel');
+        console.log('📅 14 de noviembre de 2026');
+        console.log('🚀 Servicio configurado para GitHub Pages');
+        console.log('📡 URL del script:', 'https://script.google.com/macros/s/AKfycbxyg4Yx1w4Jo25_abPVZhWvpAD5iyQ6ZHOp3s4UG6yMiVKD_F4eBMg9F4FGk31_fNG5yA/exec');
+    </script>
+
+</body>
+</html>
