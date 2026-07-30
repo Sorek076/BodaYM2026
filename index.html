@@ -37,7 +37,6 @@
             z-index: 2;
         }
 
-        /* --- Fuentes --- */
         .fuente-cormorant {
             font-family: 'Cormorant Garamond', serif;
         }
@@ -47,7 +46,7 @@
             font-weight: 400;
         }
 
-        /* --- Sección 1: Hero con imagen de fondo y filtro --- */
+        /* --- Sección 1: Hero --- */
         .hero {
             min-height: 100vh;
             background-image: url('https://raw.githubusercontent.com/Yaneth-Miguel/Boda2026/refs/heads/main/IMG001.jpg');
@@ -200,7 +199,6 @@
             background: #ffffff;
         }
 
-        /* --- Sección 4: RSVP con fondo especial --- */
         .section-rsvp {
             background: #c0b4d9;
         }
@@ -242,14 +240,6 @@
             display: inline-block;
         }
 
-        .section-title .texto-normal {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(2.4rem, 6vw, 3.6rem);
-            font-weight: 400;
-            color: #b894d4;
-            display: inline-block;
-        }
-
         .section-sub {
             font-family: 'Cormorant Garamond', serif;
             text-align: center;
@@ -260,7 +250,7 @@
             font-weight: 300;
         }
 
-        /* --- Sección 2: Recepción --- */
+        /* --- Recepción --- */
         .recepcion-info {
             text-align: center;
             max-width: 500px;
@@ -315,7 +305,7 @@
             box-shadow: 0 8px 30px rgba(192, 180, 216, 0.4);
         }
 
-        /* --- Sección 3: Gracias con fondo --- */
+        /* --- Gracias con fondo --- */
         .section-gracias {
             background-image: url('https://raw.githubusercontent.com/Yaneth-Miguel/Boda2026/refs/heads/main/IMG001.jpg');
             background-size: cover;
@@ -398,7 +388,7 @@
             margin-top: 4px;
         }
 
-        /* --- Sección 4: RSVP --- */
+        /* --- RSVP Formulario --- */
         .rsvp-container {
             max-width: 550px;
             margin: 0 auto;
@@ -526,7 +516,7 @@
             display: block;
         }
 
-        /* --- Sección 5: Otros detalles --- */
+        /* --- Otros detalles --- */
         .detalles-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -584,7 +574,7 @@
             line-height: 1.6;
         }
 
-        /* --- Sección 6: Regalos con fondo --- */
+        /* --- Regalos con fondo --- */
         .section-regalos {
             background-image: url('https://raw.githubusercontent.com/Yaneth-Miguel/Boda2026/refs/heads/main/IMG001.jpg');
             background-size: cover;
@@ -633,11 +623,7 @@
             margin-bottom: 16px;
         }
 
-        .regalos-texto p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* --- Sección 7: Galería --- */
+        /* --- Galería --- */
         .section-galeria {
             background: #958db2;
         }
@@ -715,136 +701,40 @@
 
         /* --- Responsive --- */
         @media (max-width: 768px) {
-            .detalles-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
-
-            .carrusel-track img {
-                height: 500px;
-            }
-
-            .recepcion-info .hora {
-                gap: 15px;
-            }
-
-            .recepcion-info .hora .linea {
-                max-width: 60px;
-            }
-
-            .contador-item {
-                min-width: 55px;
-                padding: 8px 10px;
-                max-width: 80px;
-            }
-
-            .contador-item .numero {
-                font-size: 1.6rem;
-            }
-
-            .contador-item .etiqueta {
-                font-size: 0.55rem;
-            }
-
-            .rsvp-form {
-                padding: 25px 20px;
-            }
-
-            .radio-group {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .hero .logo-png {
-                max-width: 240px;
-            }
+            .detalles-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .carrusel-track img { height: 500px; }
+            .recepcion-info .hora { gap: 15px; }
+            .recepcion-info .hora .linea { max-width: 60px; }
+            .contador-item { min-width: 55px; padding: 8px 10px; max-width: 80px; }
+            .contador-item .numero { font-size: 1.6rem; }
+            .contador-item .etiqueta { font-size: 0.55rem; }
+            .rsvp-form { padding: 25px 20px; }
+            .radio-group { flex-direction: column; gap: 10px; }
+            .hero .logo-png { max-width: 240px; }
         }
 
         @media (max-width: 480px) {
-            .hero .titulo-principal {
-                font-size: 1.2rem;
-            }
-
-            .hero .logo-png {
-                max-width: 180px;
-                margin-bottom: 25px;
-            }
-
-            .contador-wrapper {
-                padding: 20px 12px;
-            }
-
-            .contador-item {
-                min-width: 45px;
-                padding: 6px 8px;
-                max-width: 65px;
-            }
-
-            .contador-item .numero {
-                font-size: 1.3rem;
-            }
-
-            .contador-item .etiqueta {
-                font-size: 0.5rem;
-            }
-
-            .carrusel-track img {
-                height: 350px;
-            }
-
-            .section {
-                padding: 50px 0;
-            }
-
-            .gracias-texto .frase-grande {
-                font-size: 2.4rem;
-            }
-
-            .gracias-texto .firma {
-                font-size: 1.2rem;
-                text-align: center;
-                margin: 0 auto;
-            }
-
-            .gracias-texto .firma span {
-                font-size: 1.6rem;
-            }
-
-            .section-title .script-inline {
-                font-size: 2rem;
-            }
-
-            .section-title .texto-normal {
-                font-size: 2rem;
-            }
+            .hero .titulo-principal { font-size: 1.2rem; }
+            .hero .logo-png { max-width: 180px; margin-bottom: 25px; }
+            .contador-wrapper { padding: 20px 12px; }
+            .contador-item { min-width: 45px; padding: 6px 8px; max-width: 65px; }
+            .contador-item .numero { font-size: 1.3rem; }
+            .contador-item .etiqueta { font-size: 0.5rem; }
+            .carrusel-track img { height: 350px; }
+            .section { padding: 50px 0; }
+            .gracias-texto .frase-grande { font-size: 2.4rem; }
+            .gracias-texto .firma { font-size: 1.2rem; text-align: center; margin: 0 auto; }
+            .gracias-texto .firma span { font-size: 1.6rem; }
+            .section-title .script-inline { font-size: 2rem; }
         }
 
         @media (max-width: 360px) {
-            .contador-item {
-                min-width: 38px;
-                padding: 4px 6px;
-                max-width: 55px;
-            }
-
-            .contador-item .numero {
-                font-size: 1.1rem;
-            }
-
-            .contador-item .etiqueta {
-                font-size: 0.4rem;
-            }
-
-            .carrusel-track img {
-                height: 280px;
-            }
-
-            .recepcion-info .hora .linea {
-                max-width: 30px;
-            }
-
-            .hero .logo-png {
-                max-width: 150px;
-            }
+            .contador-item { min-width: 38px; padding: 4px 6px; max-width: 55px; }
+            .contador-item .numero { font-size: 1.1rem; }
+            .contador-item .etiqueta { font-size: 0.4rem; }
+            .carrusel-track img { height: 280px; }
+            .recepcion-info .hora .linea { max-width: 30px; }
+            .hero .logo-png { max-width: 150px; }
         }
     </style>
 </head>
@@ -854,15 +744,10 @@
     <section class="hero" id="inicio">
         <div class="contenido">
             <h1 class="titulo-principal">HA LLEGADO EL GRAN DÍA</h1>
-
-            <!-- Logo PNG -->
             <div class="logo-png">
                 <img src="https://raw.githubusercontent.com/Yaneth-Miguel/Boda2026/refs/heads/main/Logo%20YM-01.png" alt="Logo YM" loading="lazy" />
             </div>
-
             <div class="label-faltan">FALTAN</div>
-
-            <!-- Contador -->
             <div class="contador-wrapper">
                 <div class="contador" id="contador">
                     <div class="contador-item">
@@ -883,7 +768,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="label-boda">PARA NUESTRA BODA</div>
         </div>
     </section>
@@ -894,20 +778,17 @@
             <h2 class="section-title" style="color:#6e6292;">
                 <span class="script" style="color:#6e6292;">Recepción</span>
             </h2>
-
             <div class="recepcion-info">
                 <div class="hora">
                     <span class="linea"></span>
                     <span>12:30 pm</span>
                     <span class="linea"></span>
                 </div>
-
                 <div class="direccion">
                     Calle Alberto Jiménez<br />
                     Esq. Guillermo Cadena<br />
                     Islas Agrarias Sección A
                 </div>
-
                 <a href="#" target="_blank" class="btn-mapa">ABRIR MAPA</a>
             </div>
         </div>
@@ -918,11 +799,8 @@
         <div class="container">
             <div class="gracias-texto">
                 <div class="frase-grande">Gracias por<br />acompañarnos</div>
-
                 <p class="frase-media">"Algunos instantes duran solo un momento, pero permanecen para siempre en el corazón"</p>
-
                 <p class="frase-larga">Este día será uno de esos recuerdos que atesoraremos toda la vida, y nos llena de alegría saber que podremos compartirlo con las personas que más queremos.</p>
-
                 <div class="firma">
                     Con cariño
                     <span>MIGUEL &amp; YANETH</span>
@@ -971,9 +849,10 @@
                             <input type="tel" id="telefono" name="telefono" placeholder="Ej: 55 1234 5678" />
                         </div>
 
+                        <!-- CAMPO CANCIÓN - NOMBRE CAMBIADO A "musica" -->
                         <div class="form-group">
-                            <label for="cancion">Queremos que disfrutes la fiesta tanto como nosotros. ¿Hay alguna canción que no pueda faltar en la pista de baile?</label>
-                            <textarea id="cancion" name="cancion" placeholder="¡Dejanos tu sugerencia! (Opcional)"></textarea>
+                            <label for="musica">Queremos que disfrutes la fiesta tanto como nosotros. ¿Hay alguna canción que no pueda faltar en la pista de baile?</label>
+                            <textarea id="musica" name="musica" placeholder="¡Dejanos tu sugerencia! (Opcional)"></textarea>
                         </div>
 
                         <button type="submit" class="btn-enviar">Enviar confirmación</button>
@@ -993,15 +872,11 @@
             <h2 class="section-title">
                 <span class="script-inline">Otros detalles</span>
             </h2>
-
             <div class="detalles-grid">
-                <!-- Niños -->
                 <div class="detalle-card">
                     <h3>Niños</h3>
                     <p>Adoramos a tus hijos, pero creemos que necesitas una noche libre. Nuestra boda será una celebración exclusivamente para adultos.</p>
                 </div>
-
-                <!-- Código de vestimenta -->
                 <div class="detalle-card">
                     <h3>Código de vestimenta</h3>
                     <p style="font-weight:600;color:#4d3e5a;font-size:1.1rem;font-family:'Cormorant Garamond',serif;">SEMI FORMAL</p>
@@ -1030,7 +905,6 @@
     <section class="section section-regalos" id="regalos">
         <div class="container">
             <h2 class="section-title"><span class="script">Regalos</span></h2>
-
             <div class="regalos-texto">
                 <p>Su compañía es el mejor regalo que podríamos recibir.</p>
                 <p>Para quienes deseen obsequiarnos un detalle, hemos preparado un sobre dentro de su invitación física. Su apoyo será destinado para nuestra luna de miel, nuestro primer viaje de esta nueva etapa que comenzaremos como esposos.</p>
@@ -1044,11 +918,8 @@
         <div class="container">
             <h2 class="section-title"><span class="script">Galería</span></h2>
             <p class="section-sub">Dicen que una fotografía detiene el tiempo por un instante. Estas imágenes son algunos de los recuerdos que hoy nos han traído hasta aquí.</p>
-
             <div class="carrusel-container">
-                <div class="carrusel-track" id="carruselTrack">
-                    <!-- Las imágenes se insertarán con JavaScript -->
-                </div>
+                <div class="carrusel-track" id="carruselTrack"></div>
             </div>
         </div>
     </section>
@@ -1060,10 +931,7 @@
                 <p>Si tienes alguna duda sobre la celebración,<br />
                 mándanos un mensaje por <strong>WhatsApp</strong>.<br />
                 Estamos encantados de ayudarte.</p>
-
-                <p style="margin-top: 20px;">Gracias por acompañarnos en el inicio<br />
-                de esta nueva etapa.</p>
-
+                <p style="margin-top: 20px;">Gracias por acompañarnos en el inicio<br />de esta nueva etapa.</p>
                 <div class="firma-footer">Miguel &amp; Yaneth</div>
             </div>
         </div>
@@ -1110,9 +978,7 @@
                 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=600&fit=crop',
                 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=600&fit=crop'
             ];
-
             const todas = [...imagenes, ...imagenes];
-
             todas.forEach(url => {
                 const img = document.createElement('img');
                 img.src = url;
@@ -1134,7 +1000,8 @@
             const nombre = formData.get('nombre');
             const apellidos = formData.get('apellidos');
             const telefono = formData.get('telefono');
-            const cancion = formData.get('cancion');
+            // CAMBIADO: obtener 'musica' en lugar de 'cancion'
+            const musica = formData.get('musica'); 
 
             if (!asistencia) {
                 alert('Por favor selecciona si asistirás o no.');
@@ -1146,10 +1013,11 @@
                 nombre: nombre,
                 apellidos: apellidos,
                 telefono: telefono || '',
-                cancion: cancion || ''
+                musica: musica || '' // CAMBIADO: enviar como 'musica'
             };
 
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwKHJF5Q8YMswO3dsThMkgP0E-fjzwiDiMCwTM_b5Y1Z9vz0XJIcOOP4zKUaefhW8qe/exec';
+            // URL del script - ACTUALIZAR CON LA NUEVA URL DESPUÉS DE PUBLICAR
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxgGVjjeW6_b31vAfy-kngryLAb6YCFZBEUNF1cCHxnO-85vhvGTit3o6Eav9RaPSS_/exec';
 
             const botonEnviar = document.querySelector('.btn-enviar');
             const textoOriginal = botonEnviar.textContent;
@@ -1171,7 +1039,7 @@
                 document.getElementById('mensajeExito').classList.add('active');
                 form.reset();
                 document.querySelector('input[name="asistencia"][value="asistire"]').checked = true;
-                document.getElementById('cancion').value = '';
+                document.getElementById('musica').value = ''; // CAMBIADO
 
                 setTimeout(() => {
                     document.getElementById('mensajeExito').classList.remove('active');
@@ -1190,6 +1058,5 @@
         console.log('🎉 Boda de Yaneth & Miguel');
         console.log('📅 14 de noviembre de 2026');
     </script>
-
 </body>
 </html>
